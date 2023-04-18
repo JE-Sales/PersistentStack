@@ -1,0 +1,48 @@
+
+public class Node {
+	private int data;
+	private Stack prevState;
+	private Node next;
+	private Node prev;
+	private int identifier;
+
+	Node(int data) {
+		this.data = data;
+		prevState = null;
+		next = prev = null;
+		identifier = 0;
+	}
+	
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
+	public Stack getPrevState() {
+		return prevState;
+	}
+	public int getIdentifier() {
+		return identifier;
+	}
+	public void setPrevState(Stack prevState) {
+		this.prevState = prevState;
+	}
+	public Node getNext() {
+		return next;
+	}
+	public void setNext(Node next) {
+		this.next = next;
+	}
+	public Node getPrev() {
+		return prev;
+	}
+	public void setPrev(Node prev) {
+		this.prev = prev;
+	}
+	public void setIdentifier(int identifier) {
+		this.identifier = identifier;
+	}
+
+	
+}
