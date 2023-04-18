@@ -1,0 +1,72 @@
+
+public class Stack {
+	Node head;
+	Node tail;
+
+	void push(int data) {
+		Node newNode = new Node(data);
+
+		if (head == null) {
+			head = tail = newNode;
+		} else {
+			newNode.setPrevState(copy());
+			newNode.setPrev(tail);
+			tail.setNext(newNode);
+			tail = tail.getNext();
+		}
+		
+		System.out.print("Current ");
+		display();
+
+	}
+
+	void pop() {
+		Node cur = tail;
+
+		while (cur != null) {
+			if (cur.getIdentifier() == 0) {
+				cur.setIdentifier(1);
+				return;
+			}
+
+			cur = cur.getPrev();
+		}
+		
+		System.out.println("Stack is empty");
+
+	}
+	
+	void history() {
+		Node cur = tail;
+		
+		while (cur != null) {
+			cur.getPrevState().display();
+			cur = cur.getPrev();
+		}
+	}
+	
+	void display() {
+		Node temp = head;
+		
+		System.out.print("State: ");
+		while(temp != null) {
+			System.out.print(" " + temp.getData());
+			temp = temp.getNext();
+		}
+		System.out.println();
+	}
+	
+	Stack copy() {
+		Stack newStack = new Stack();
+		Node temp = head;
+		
+		while(temp != null) {
+			newStack.push(temp.getData());
+			temp = temp.getNext();
+		}
+		
+		return newStack;
+		
+	}
+
+}
